@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Tweet the People</title>
+  <link rel="icon" type="image/x-icon" href="statics/assets/img/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#credits">Credits</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Masthead-->
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase">Tweet the People</h1>
+        <h2 class="text-white-50 mx-auto mt-2 my-2 mb-5">Tracking Twitter sentiment about the 2020 US Presidential Election candidates.</h2>
+        <div class="dropdown show">
+          <div class="form-group">
+            <form action="sentiment_map">
+              <button class="btn btn-primary" name="ticket" type="submit" value="Republican">Republican</button>
+              <button class="btn btn-primary" name="ticket" type="submit" value="Democrat">Democrat</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+
+  <section class="projects-section bg-grey" id="about">
+    <div class="container">
+      <!-- About -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6"><img class="img-fluid" src="static/assets/img/shenandoah-andrew-neel-unsplash.jpg" alt="" /></div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">About this project</h4>
+                <p class="mb-0 text-white-50">In 2020, like in 2016, the polls vastly underestimated the electoral success of Donald Trump. There’s a lot of noise in polling: Voter suppression means everyone isn't equally able to have their vote counted, and you might be weighting data incorrectly. This project uses computational linguistics methods on Twitter data to gauge voters' intentions outside of a polling context.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Data Collection -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6"><img class="img-fluid" src="static/assets/img/yellowstone-jonathan-larson-unsplash.jpg" alt="" /></div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Data collection</h4>
+                <p class="mb-0 text-white-50">This corpus contains over 300k tweets collected between 30 September and 8 November 2020. I sampled tweets about the four presidential candidates, streaming tweets 5 times roughly a minute per 2 hours for each candidate (this was done to circumvent Twitter’s rate limits). I excluded tweets that contained no text. To see the code, <a href='https://github.com/lara-ehr/tweet-the-people'>look at my GitHub repository.</a></p>
+                <hr class="d-none d-lg-block mb-0 mr-0" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sentiment analysis-->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6"><img class="img-fluid" src="static/assets/img/yosemite-logan-easterling-unsplash.jpg" alt="" /></div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Sentiment analysis</h4>
+                <p class="mb-0 text-white-50">I used VADER, a lexical sentiment analysis tool. This is a prototype, and I’m planning to expand the sentiment analysis using more sophisticated tools. One limitation is that VADER assigns positive scores to the word “positive” — that’s at odds with the presumed sentiment of a phrase like “tested positive for coronavirus.” I'll address this in future versions.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Geolocation-->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6"><img class="img-fluid" src="static/assets/img/grandcanyon-eric-murray-unsplash.jpg" alt="" /></div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Geolocation</h4>
+                <p class="mb-0 text-white-50">Twitter users can choose to geotag their tweets, but only about 1-2% of tweets are geotagged. Most locations in this data set are determined based on users’ self-reported location. Some people list their location as “God Bless America” or “hell since 2016”, but most locations are at least plausible. Since no-one has any clear incentive to lie about their location, I’ll assume that these are mostly truthful — but should be taken with a grain of salt.</p>
+                <hr class="d-none d-lg-block mb-0 mr-0" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Limitations-->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6"><img class="img-fluid" src="static/assets/img/badlands-luke-wass-unsplash.jpg" alt="" /></div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Limitations of this project</h4>
+                <p class="mb-0 text-white-50">Twitter, unlike the overall US electorate, is 80% millennial, 70% male, and skews educated, well-off, and left-leaning. But the point of the project is to understand the kind of ambient “chatter” that might indirectly influence voters’ choices. That gets picked up by Twitter users — giving us a sense of the topics a broader group of voters care about.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Credits -->
+  <section class="projects-section bg-grey" id="credits">
+    <div class="container">
+      <!-- About -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6"><img class="img-fluid" src="static/assets/img/bryce-barth-bailey-unsplash.jpg" alt="" /></div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Credits</h4>
+                <p>
+                  <ul class="mb-0 text-white-50">
+                    <li>Data science: <a href='https://github.com/lara-ehr'>lara-ehr</a></li>
+                    <li>Images: pictures of national parks I've been to, sourced from Unsplash (Jonathan Larson, Andrew Neel, Barth Bailey, Logan Easterling, Eric Murray, Luke Wass), Wikimedia Commons</li>
+                    <li>Front-end development: modified from a <a href='https://startbootstrap.com/previews/grayscale'>theme by Bootstrap</a></li>
+                  </ul>
+                </p>
+                <hr class="d-none d-lg-block mb-0 ml-0" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Footer-->
+  <footer class="footer bg-grey small text-center text-white-50">
+    <div class="container">Copyright © <a href='https://github.com/lara-ehr'>lara-ehr</a> 2020</div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="static/js/scripts.js"></script>
+</body>
+
+</html>
