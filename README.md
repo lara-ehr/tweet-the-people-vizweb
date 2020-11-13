@@ -4,4 +4,4 @@ Repository for Tweet the People front-end development. See it in action here: ht
 
 ## Approach
 
-Built using Flask, plotly, and a Bootstrap theme.
+Built using Flask, plotly, and a modified Bootstrap theme.
