@@ -17,8 +17,8 @@ MARGIN = {'r': 10, 't': 10, 'l': 60, 'b': 10}
 with urlopen('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json') as states_url:
     USA_STATES = json.load(states_url)
 
-AGG_SENTIMENT_URL = 'https://raw.githubusercontent.com/lara-ehr/tweet-the-people-vizweb/main/agg_state_sentiment.csv'
-AGG_SENTIMENT = pd.read_csv(AGG_SENTIMENT_URL)
+AGG_SENTIMENT_PATH = 'data/agg_state_sentiment.csv'
+AGG_SENTIMENT = pd.read_csv(AGG_SENTIMENT_PATH)
 
 
 def sent_line_plot():
